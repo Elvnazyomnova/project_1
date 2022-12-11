@@ -1,11 +1,30 @@
 #Файл для тестов
+#4 раза бросается 6-сторонний кубик, выводится сумма бросков.
+from random import sample
+i = 0
+arr = []
+cub = range(1,6)
+total = 0
+while i != 4:
+    throw = sample(cub, 1)
+    arr.append(throw)
+    i += 1
+    print(f'Бросок {i}, выпавшее число {throw}')
+for k in arr:
+    total += i
+print(f'Сумма бросков: {total}')
 
-def make_coffee(size=250, sugar_dose=2):
+#Далее
+def make_coffee(size, sugar_dose):
+    '''
+    Функция make_coffee принимает две переменные: размер кружки, количество сахара
+    '''
     if sugar_dose > 5:
         return 'Слишком много сахара'
     else:
         return f'Ваш кофе объемом {size} мл с {sugar_dose} кусочками готов!'
-text = make_coffee()
+        print('fff')
+print(make_coffee(int(input()), int(input())))
 
 #Далее
 def char_cleaner(string):
@@ -20,19 +39,21 @@ def char_cleaner(string):
             new_s += i
     return new_s
 s = 'Дата заказа: 2022-10-18_xdasa'
+print(char_cleaner(input()))
 
-#Далее
-name = 'Никита'
-def greeting():
-    global question
-    question = 'Как дела,'
-    print('Привет,', name, question)
+    
+#На колесе рулетки карманы пронумерованы от 0 до 36. Ниже приведены цвета карманов: 
+#карман 0 зеленый; для карманов с 1 по 10 карманы с нечетным номером имеют красный цвет, карманы с четным номером – черный; для карманов с 11 по 18 карманы с нечетным номером имеют черный цвет, карманы с четным номером – красный; для карманов с 19 по 28 карманы с нечетным номером имеют красный цвет, карманы с четным номером – черный; для карманов с 29 по 36 карманы с нечетным номером имеют черный цвет, карманы с четным номером – красный.
+# Напишите программу, которая считывает номер кармана и показывает, является ли этот карман зеленым, красным или черным. Программа должна вывести сообщение об ошибке, если пользователь вводит число, которое лежит вне диапазона от 0 до 36.
 
-def add_value(param):
-    [].append(param)
-
-#Lfktt
-def print_them_all(*args):
-    print('print them all')
-    print('тип args:', type(args))
-    print(args)
+# put your python code here
+a = int(input())
+if 0 <= a <= 36:
+    if a == 0:
+        print('зеленый')
+    elif (1 <= a <= 10 and a % 2 != 0) or (11 <= a <= 18 and a % 2 == 0) or (19 <= a <= 28 and a % 2 != 0) or (29 <= a <= 36 and a % 2 == 0):
+        print('красный')
+    elif (1 <= a <= 10 and a % 2 == 0) or (11 <= a <= 18 and a % 2 != 0) or (19 <= a <= 28 and a % 2 == 0) or (29 <= a <= 36 and a % 2 != 0):
+        print('черный')
+else:
+    print('ошибка ввода')
